@@ -177,6 +177,8 @@ def validate_square(square, size, magic_number):
         print(* diag1)
 
         check_magic_square = False
+    
+    return check_magic_square
 
 
     # Checks second diagnoal from bottom left to top right 
