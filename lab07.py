@@ -133,7 +133,7 @@ def validate_square(square, size, magic_number):
 
         print(f'The input cannot be a magic square! There must be one of each value from 1 to {size**2}.')
 
-        return False 
+        return None 
 
     check_magic_square = True 
 
@@ -168,29 +168,31 @@ def validate_square(square, size, magic_number):
     # Checks first diagonal for top left to bottom right 
     diag1 = []
 
+    for i in range(size):
+
+        diag1.append(square[i][i])
+
+
     if sum(diag1) != magic_number:
 
         print('Diagonal 1 does not work!')
 
-        print('These are the values in diagonal 1: ', end='')
-
-        print(* diag1)
+        print('These are the values in diagonal 1:', * diag1)
 
         check_magic_square = False
-    
-    return check_magic_square
-
 
     # Checks second diagnoal from bottom left to top right 
     diag2 = []
+
+    for i in range(size):
+
+        diag2.append(square[i][size-1-i])
 
     if sum(diag2) != magic_number:
 
         print('Diagonal 2 does not work!')
 
-        print('These are the values in diagonal 2: ', end='')
-
-        print(* diag2)
+        print('These are the values in diagonal 2:', * diag2)
 
         check_magic_square = False
 
@@ -206,9 +208,13 @@ square = square_spaces(size)
 result = validate_square(square, size, magic_number)
 
 # Validate the square and print result 
-if result: 
+if result == True:  
 
     print('This is a magic square!')
+
+elif result == False: 
+
+    print('This is not a magic square!')
 
 else: 
 
