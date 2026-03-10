@@ -142,26 +142,18 @@ def validate_square(square, size, magic_number):
 
         if sum(square[row]) != magic_number: 
 
-            print(f'Row {row} does not work! These are the values in row {row}: ', end = '')
-
-            print( * square [row])
+            print(f'Row {row} does not work! These are the values in row {row}: ', * square[row])
 
             check_magic_square = False 
 
     # Checks columns 
     for column in range(size):
 
-        column_val = []
-
-        for r in range(size):
-
-            column_val.append(square[r][column])
+        column_val = [square[r][column] for r in range(size)]
 
         if sum(column_val) != magic_number:
 
-            print(f'Column {column} does not work! These are the values in column {column}: ', end = '')
-
-            print( * column_val)
+            print(f'Column {column} does not work! These are the values in column {column}: ', * column_val)
 
             check_magic_square = False 
 
@@ -181,7 +173,7 @@ def validate_square(square, size, magic_number):
 
         check_magic_square = False
 
-    # Checks second diagnoal from bottom left to top right 
+    # Checks second diagnoal from top right to bottom left  
     diag2 = []
 
     for i in range(size):
