@@ -131,9 +131,9 @@ def validate_square(square, size, magic_number):
     # Checks that all numbers from 1 to n^2 are present 
     if temp_list != expected_list: 
 
-        print(f'The input cannot be a magic square! There must be one of each value from 1 to {size**2}.')
+        print("This is not a magic square!")
 
-        return None 
+        return False  
 
     check_magic_square = True 
 
